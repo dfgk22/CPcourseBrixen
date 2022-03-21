@@ -8,4 +8,4 @@ url = 'http://api.openweathermap.org/data/2.5/weather?q=' + location +'&appid=' 
 response = requests.get(url) 
 weatherData = json.loads(response.text)
 
-st.text(weatherData['main']['temp_min']) 
+st.text('the', weatherData['main']['temp_min']) 
