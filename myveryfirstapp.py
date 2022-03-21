@@ -9,7 +9,7 @@ response = requests.get(url)
 weatherData = json.loads(response.text)
 
 st.header('This is the weather forecast for ' + location + ' today')
-st.metric(label="Temperature", value=str(weatherData['main']['temp']) + 'ºC')
-st.text('The current temperature for ' + location + ' is ' + str(weatherData['main']['temp']) + 'ºC')
-st.text('The minimun temperature for ' + location + ' will be ' + str(weatherData['main']['temp_min']) + 'ºC')
-st.text('The maximun temperature for ' + location + ' will be ' + str(weatherData['main']['temp_max']) + 'ºC')
+st.metric(label="Current Temperature", value=str(weatherData['main']['temp']) + 'ºC')
+st.metric(label="Minimun Temperature", value=str(weatherData['main']['temp_min']) + 'ºC')
+st.metric(label="Maximun Temperature", value=str(weatherData['main']['temp_max']) + 'ºC')
+
