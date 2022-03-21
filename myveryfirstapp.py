@@ -11,6 +11,6 @@ weatherData = json.loads(response.text)
 st.header('This is the weather forecast for ' + location + ' today')
 col1, col2, col3 = st.columns(3)
 col1.metric(label="Current Temperature", value=str(weatherData['main']['temp']) + 'ºC')
-col2.metric(label="Minimun Temperature", value=str(weatherData['main']['temp_min']) + 'ºC')
-col3.metric(label="Maximun Temperature", value=str(weatherData['main']['temp_max']) + 'ºC')
+col2.metric(label="Minimum Temperature", value=str(weatherData['main']['temp_min']) + 'ºC')
+col3.metric(label="Maximum Temperature", value=str(weatherData['main']['temp_max']) + 'ºC')
 
