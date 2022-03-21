@@ -11,4 +11,4 @@ weatherData = json.loads(response.text)
 
 
 
-st.text('the minimun temperature is' + weatherData['main']['temp_max'])
+st.text('the minimun temperature is' + str(weatherData['main']['temp_max']))
