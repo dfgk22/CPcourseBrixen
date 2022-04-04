@@ -5,7 +5,7 @@ translator = Translator()
 
 st.title('Translator')
 
-word = st.text_input('Give me a word or a phrase to translate into Italian', '') 
+word = st.text_input('Give me a word or a phrase to translate into Italian', 'word') 
 
 
 abc = translator.translate(word, dest='it')
