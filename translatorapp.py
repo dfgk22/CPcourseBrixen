@@ -9,6 +9,6 @@ word = st.text_input('Give me a word or a phrase to translate into Italian', '')
 
 if word != '':
   lang = st.text_input('Give me a target language', '') 
-  if lang != "":
+  if lang != '':
     abc = translator.translate(word, dest='lang')
     st.write('The translation is', abc.text)
