@@ -4,14 +4,6 @@ from PIL import Image
 from gtts import gTTS
 from translate import Translator
 
-
-if "page" not in st.session_state:
-  st.session_state.page = 0
-if "user_input" not in st.session_state:
-  st.session_state.user_input = None
-if "rand_item" not in st.session_state:
-  st.session_state.rand_item = None
-
 #Define functions
 def nextpage():
   st.session_state.page += 1
