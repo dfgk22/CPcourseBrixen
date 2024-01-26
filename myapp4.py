@@ -36,9 +36,10 @@ if st.session_state.page == 0:
         st.button("Continue", on_click=next_page, disabled=(st.session_state.page > 1))
 
 elif st.session_state.page == 1:
-    if st.session_state.user_input and st.session_state.user_input.lower() == str(st.session_state.rand_item):
-        placeholder.header("Great job! Ready for the next challenge?")
-        st.button("I'm on!", on_click=restart, disabled=(st.session_state.page > 1))
+  if st.session_state.user_input:
+    if st.session_state.user_input.lower() == str(st.session_state.rand_item):
+      placeholder.header("Great job! Ready for the next challenge?")
+      st.button("I'm on!",on_click=restart,disabled=(st.session_state.page > 1))
     else:
         with placeholder.container():
             st.image(Image.open(f"image/{st.session_state.rand_item}.jpg"), width=300)
