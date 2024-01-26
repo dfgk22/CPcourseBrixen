@@ -3,8 +3,6 @@ import random
 from PIL import Image
 from gtts import gTTS
 from translate import Translator
-import json
-import requests
 
 
 if "page" not in st.session_state:
@@ -88,8 +86,3 @@ elif st.session_state.page == 1:
             tts.save('user.mp3')
             st.audio('user.mp3')
               
-
-else:
-    with placeholder.container():
-        st.header("Well done! You completed this exercise. If you want to continue practicing, click on the NEW EXERCISE button")
-        st.button("NEW EXERCISE",on_click=restart)
