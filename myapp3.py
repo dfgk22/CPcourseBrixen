@@ -12,7 +12,7 @@ def restart():
   st.session_state.rand_item = random.choice(['chair', 'cloud', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
 
 
-st.title("The Ultimate IPA Quiz: Decoding English Words")
+st.title("The Ultimate IPA Quiz: Decoding English Words lalala")
 st.write("\n")
 st.text("Embark on a linguistic adventure with the immersive IPA (International Phonetic Alphabet) Quiz, designed to challenge and enhance your understanding of English pronunciation")
 st.write("\n")
