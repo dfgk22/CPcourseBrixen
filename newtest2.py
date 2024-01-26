@@ -45,13 +45,15 @@ if st.session_state.page == 0:
     img = Image.open(picture)
     st.image(img, width=300)
     st.session_state.user_input = st.text_input("Enter the word and press NEXT", key=1)
-    st.button("NEXT", on_click=nextpage, disabled=(st.session_state.page > 1))
+    
+    if st.button("NEXT") and st.session_state.page == 0:
+        nextpage()
 
 elif st.session_state.page == 1:
     if st.session_state.user_input:
         if st.session_state.user_input.lower() == str(st.session_state.rand_item):
             placeholder.header("Well done! You entered the correct word!")
-            st.button("NEXT", on_click=restart, disabled=(st.session_state.page > 1))
+            st.button("NEXT", on_click=restart)
         else:
             with placeholder.container():
                 picture = f"image/{st.session_state.rand_item}.jpg"
@@ -72,24 +74,27 @@ elif st.session_state.page == 1:
                     if st.session_state.user_input2.lower() == str(st.session_state.rand_item):
                         st.write(f"Great! That is correct. The word is {st.session_state.rand_item}")
                         translator = Translator(to_lang='it')
-                        result = translator.translate(st.session_state.rand_item)
+                        result = translator(st.session_state.rand_item)
                         st.write(f"\nThe word '{st.session_state.rand_item}' translates to '{result}' in Italian.")
                         st.write("\nNow you can keep practicing the pronunciation of this word...")
                         tts = gTTS(text=st.session_state.rand_item, lang='en')
                         tts.save('user.mp3')
                         st.audio('user.mp3')
-                        st.button("NEXT", on_click=restart, disabled=(st.session_state.page > 1))
+                        st.button("NEXT", on_click=restart)
+
                     else:
                         translator = Translator(to_lang='it')
-                        result = translator.translate(st.session_state.rand_item)
+                        result = translator(st.session_state.rand_item)
                         st.write(f"Sorry, but '{st.session_state.user_input2}' is not correct. The correct word is '{st.session_state.rand_item}'.")
                         st.write(f"\n'{st.session_state.rand_item}' translates to '{result}' in Italian.")
                         st.write("Make sure to practice by pronouncing this word with the audio.")
                         tts = gTTS(text=st.session_state.rand_item, lang='en')
                         tts.save('user.mp3')
                         st.audio('user.mp3')
+                        st.button("NEXT", on_click=restart)
 
 else:
     with placeholder.container():
         st.header("Well done! You completed this exercise. If you want to continue practicing, click on the NEW EXERCISE button")
-        st.button("NEW EXERCISE", on_click=restart)
+        if st.button("NEW EXERCISE"):
+            restart()
