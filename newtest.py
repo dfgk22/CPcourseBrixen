@@ -34,7 +34,7 @@ if st.session_state.page == 0:
     st.write("\n")
     st.write("\n")
     #st.session_state.user_input = st.text_input("Enter the word and press NEXT")
-  picture = "images/" + st.session_state.rand_item + '.jpg'
+  picture = "image/" + st.session_state.rand_item + '.jpg'
   img = Image.open(picture)
   st.image(img, width=300)
   st.session_state.user_input = st.text_input("Enter the word and press NEXT", key=1)
@@ -48,7 +48,7 @@ elif st.session_state.page == 1:
       st.button("NEXT",on_click=restart,disabled=(st.session_state.page > 1))
     else:
       with placeholder.container():
-        picture = "images/" + st.session_state.rand_item + '.jpg'
+        picture = "image/" + st.session_state.rand_item + '.jpg'
         img = Image.open(picture)
         st.image(img, width=300)
         st.write("You entered:", st.session_state.user_input)
