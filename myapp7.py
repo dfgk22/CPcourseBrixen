@@ -1,13 +1,14 @@
 import streamlit as st
+import random
 from PIL import Image
 from gtts import gTTS
 from translate import Translator
 
 # List of image filenames in your GitHub repository
 image_filenames = [
-    "chair.jpg",
-    "cloud.jpg",
-    "woman.jpg"
+    "https://raw.githubusercontent.com/dfgk22/CPcourseBrixen/main/chair.jpg",
+    "https://raw.githubusercontent.com/dfgk22/CPcourseBrixen/main/cloud.jpg",
+    "https://raw.githubusercontent.com/dfgk22/CPcourseBrixen/main/woman.jpg",
 ]
 
 def get_random_image_filename():
@@ -27,10 +28,12 @@ st.session_state.user_input = st.text_input("Type in your guess:")
 
 # Check answer
 if st.session_state.user_input:
-    correct_word = "chair", "cloud", "woman" 
+    correct_words = ["chair", "cloud", "woman"]
 
-    if st.session_state.user_input.lower() == correct_word:
+    if st.session_state.user_input.lower() in correct_words:
         st.success("Congratulations! You guessed it right.")
+        correct_word = st.session_state.user_input
+
         text_to_translate = correct_word
         translator = Translator(to_lang='it')
         result = Translator.translate(translator, text_to_translate)
@@ -41,12 +44,13 @@ if st.session_state.user_input:
         st.audio('pronunciation.mp3', format='audio/mp3')
     else:
         st.error(f"Sorry, your guess '{st.session_state.user_input}' is incorrect.")
-        st.write(f"The correct word is '{correct_word}'.")
-        
-        text_to_translate = correct_word
-        translator = Translator(to_lang='it')
-        result = Translator.translate(translator, text_to_translate)
-        st.write(f"'{correct_word}' translates to '{result}' in Italian.")
+        st.write(f"The correct words are: {', '.join(correct_words)}.")
+
+        for correct_word in correct_words:
+            text_to_translate = correct_word
+            translator = Translator(to_lang='it')
+            result = Translator.translate(translator, text_to_translate)
+            st.write(f"'{correct_word}' translates to '{result}' in Italian.")
 
         tts = gTTS(text=correct_word, lang='en')
         tts.save('pronunciation.mp3')
