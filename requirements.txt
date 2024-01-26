@@ -1,4 +1,4 @@
-Pillow
+Pillow==8.4.0
 translate
 language_tool_python
 gTTS
