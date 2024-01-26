@@ -1,3 +1,6 @@
+PIL
+Pillow
+translate
 language_tool_python
 gTTS
 
