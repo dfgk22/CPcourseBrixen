@@ -15,13 +15,13 @@ if "rand_item" not in st.session_state:
 def nextpage():  st.session_state.page += 1
 def restart():
     st.session_state.page = 0
-    st.session_state.rand_item = random.choice(['rabbit', 'car', 'tree', 'apple', 'table', 'tomato', 'door'])
+    st.session_state.rand_item = random.choice(['woman', 'cloud', 'chair', 'cold', 'heart', 'earth', 'friend', 'mountain', 'mouse', 'snow'])
 
 placeholder = st.empty()
 #st.button("NEXT",on_click=nextpage,disabled=(st.session_state.page > 1))
 
 if st.session_state.page == 0:
-  items = ['rabbit', 'car', 'tree', 'apple', 'table', 'tomato', 'door']    
+  items = ['woman', 'cloud', 'chair', 'cold', 'heart', 'earth', 'friend', 'mountain', 'mouse', 'snow']    
   if 'item' not in st.session_state:
     st.session_state.rand_item = random.choice(items)
     st.session_state.item = st.session_state.rand_item
