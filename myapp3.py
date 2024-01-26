@@ -11,31 +11,22 @@ def restart():
   st.session_state.page = 0
   st.session_state.rand_item = random.choice(['chair', 'cloud', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
 
-placeholder = st.empty()
 
-if st.session_state.page == 0:
-  items = ['chair', 'cloud', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman']   
-  if 'item' not in st.session_state:
-    st.session_state.rand_item = random.choice(items)
-    st.session_state.item = st.session_state.rand_item
-  else:
-    rand_item = st.session_state.item
-  with placeholder.container():
-    st.title("The Ultimate IPA Quiz: Decoding English Words")
-    st.write("\n")
-    st.text("Embark on a linguistic adventure with the immersive IPA (International Phonetic Alphabet) Quiz, designed to challenge and enhance your understanding of English pronunciation")
-    st.write("\n")
-    st.header("Decipher the IPA symbol :uk: :uk: :uk:")
-    st.write("\n")
-    st.write("\n")
-  picture = "image/" + st.session_state.rand_item + '.jpg'
-  img = Image.open(picture)
-  st.image(img, width=300)
-  st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol", key=1)
-  st.button("Continue",on_click=nextpage,disabled=(st.session_state.page > 1))
+st.title("The Ultimate IPA Quiz: Decoding English Words")
+st.write("\n")
+st.text("Embark on a linguistic adventure with the immersive IPA (International Phonetic Alphabet) Quiz, designed to challenge and enhance your understanding of English pronunciation")
+st.write("\n")
+st.header("Decipher the IPA symbol :uk: :uk: :uk:")
+st.write("\n")
+st.write("\n")
+picture = "image/" + st.session_state.rand_item + '.jpg'
+img = Image.open(picture)
+st.image(img, width=300)
+st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol", key=1)
+st.button("Continue",on_click=nextpage,disabled=(st.session_state.page > 1))
   
 
-elif st.session_state.page == 1:
+if st.session_state.page == 1:
   if st.session_state.user_input:
     if st.session_state.user_input.lower() == str(st.session_state.rand_item):
       placeholder.header("Great job! Ready for the next challenge?")
