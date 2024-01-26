@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import json, requests
-from Pillow import Image
+from PIL import Image
 from gtts import gTTS
 
 if "page" not in st.session_state:
