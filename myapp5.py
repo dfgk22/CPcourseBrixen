@@ -4,7 +4,6 @@ from PIL import Image
 from gtts import gTTS
 from translate import Translator
 
-# Initialize session state variables
 if "page" not in st.session_state:
     st.session_state.page = 0
 if "user_input" not in st.session_state:
@@ -12,12 +11,12 @@ if "user_input" not in st.session_state:
 if "rand_item" not in st.session_state:
     st.session_state.rand_item = None
 
-# Define functions
+def nextpage():
+  st.session_state.page += 1
 def restart():
     st.session_state.page = 0
     st.session_state.rand_item = random.choice(['chair', 'cloud', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
 
-# Main logic
 placeholder = st.empty()
 
 if st.session_state.page == 0:
@@ -30,8 +29,7 @@ if st.session_state.page == 0:
         st.write("\n")
         st.image(Image.open(f"image/{st.session_state.rand_item}.jpg"), width=300)
         st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol", key=1)
-        if st.session_state.user_input:
-            st.button("Check Answer", disabled=(st.session_state.page > 1))
+        st.button("Check Answer", disabled=(st.session_state.page > 1))
 
     if st.session_state.user_input2:
         if st.session_state.user_input2.lower() == str(st.session_state.rand_item):
