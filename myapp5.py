@@ -13,9 +13,6 @@ if "rand_item" not in st.session_state:
     st.session_state.rand_item = None
 
 # Define functions
-def next_page():
-    st.session_state.page += 1
-
 def restart():
     st.session_state.page = 0
     st.session_state.rand_item = random.choice(['chair', 'cloud', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
@@ -33,17 +30,13 @@ if st.session_state.page == 0:
         st.write("\n")
         st.image(Image.open(f"image/{st.session_state.rand_item}.jpg"), width=300)
         st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol", key=1)
-        st.button("Continue", on_click=next_page, disabled=(st.session_state.page > 1))
+        if st.session_state.user_input:
+            st.button("Check Answer", disabled=(st.session_state.page > 1))
 
-elif st.session_state.page == 1:
-    if st.session_state.user_input and st.session_state.user_input.lower() == str(st.session_state.rand_item):
-        placeholder.header("Great job! Ready for the next challenge?")
-        st.button("I'm on!", on_click=restart, disabled=(st.session_state.page > 1))
-    else:
+    if st.session_state.page == 1:
         with placeholder.container():
             st.image(Image.open(f"image/{st.session_state.rand_item}.jpg"), width=300)
             st.write(f"You entered: {st.session_state.user_input}")
-            st.write("Oops! Take a moment to hear the word and try again")
             st.write("\n")
             st.write("\n")
             tts = gTTS(text=st.session_state.rand_item, lang='en')
@@ -75,7 +68,7 @@ elif st.session_state.page == 1:
                     tts.save('user.mp3')
                     st.audio('user.mp3')
 
-else:
-    with placeholder.container():
-        st.header("Well done! You completed this exercise. If you want to continue practicing, click on the NEW EXERCISE button")
-        st.button("NEW EXERCISE", on_click=restart)
+    else:
+        with placeholder.container():
+            st.header("Well done! You completed this exercise. If you want to continue practicing, click on the NEW EXERCISE button")
+            st.button("NEW EXERCISE", on_click=restart)
