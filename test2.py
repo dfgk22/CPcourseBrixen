@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-from Pillow import Image
+from PIL import Image
 from gtts import gTTS
 from translate import Translator
 
