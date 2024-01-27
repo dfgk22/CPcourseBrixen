@@ -40,7 +40,7 @@ st.write("\n")
 # Load and display the image for the current word
 picture = "image/" + st.session_state.rand_item + '.jpg'
 img = Image.open(picture)
-st.image(img, width=500)
+st.image(img, width=400)
 
 # User input for the English word
 st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol. **Remember to first press Enter and then click on Continue.**", key=1)
