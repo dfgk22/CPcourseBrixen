@@ -1,3 +1,16 @@
+## For the following piece of code, I took inspiration and had help from many many people. 
+## I would like to acknowledge the help of my classmates, Eleonora, Nicolò, Darline, and Filippo for their ideas and codes
+## Also, people that helped me put everything together and debug issues that were not working at the beginning: Javier, Tiago and Enrico.
+## Special thanks to my wife Cristina for her support whenever the code did not work
+## Also, here are some possible references form the several pages, forums, and videos I watched in order to assemble everything together:
+## https://pypi.org/project/pillow/8.4.0/
+## https://github.com/streamlit/streamlit/issues/4420
+## https://pypi.org/project/translate/
+## https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/app-dependencies
+## https://gtts.readthedocs.io/en/latest/module.html
+## https://docs.streamlit.io/library/api-reference/media/st.audio
+## https://docs.streamlit.io/library/api-reference
+
 import streamlit as st
 import random
 from PIL import Image
@@ -10,7 +23,7 @@ if "user_input" not in st.session_state:
 if "rand_item" not in st.session_state:
     st.session_state.rand_item = None
 
-# Define functions
+# Define function
 def restart():
     st.session_state.rand_item = random.choice(['bus',
                                                 'blue',
