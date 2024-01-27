@@ -12,7 +12,45 @@ if "rand_item" not in st.session_state:
 
 # Define functions
 def restart():
-    st.session_state.rand_item = random.choice(['chair', 'street', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
+    st.session_state.rand_item = random.choice(['bus',
+                                                'blue',
+                                                'cat',
+                                                'chair',
+                                                'chameleon',
+                                                'child',
+                                                'choir',
+                                                'coffee',
+                                                'cloud',
+                                                'cold',
+                                                'colonel',
+                                                'computer',
+                                                'earth',
+                                                'english'
+                                                'friend',
+                                                'heart',
+                                                'honey',
+                                                'image',
+                                                'jealous',
+                                                'learner',
+                                                'leisure',
+                                                'money',
+                                                'moon',
+                                                'mountain', 
+                                                'mouse',
+                                                'phone',
+                                                'photo',
+                                                'post',
+                                                'queue',
+                                                'squirrel',
+                                                'street',
+                                                'through',
+                                                'time',
+                                                'tongue',
+                                                'train',
+                                                'vulnerable', 
+                                                'woman'
+                                                'yacht',
+                                                'yellow'])
 
 # Load a random word when the app starts
 if st.session_state.rand_item is None:
