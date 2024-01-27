@@ -25,7 +25,7 @@ st.write("\n")
 st.subheader(':blue[Embark on a linguistic adventure with the _immersive IPA (International Phonetic Alphabet) Quiz_] :red[designed to challenge and enhance your understanding of _British English pronunciation_]')
 st.write("\n")
 st.write("\n")
-expander = st.expander("As a brief recall, click here to check what symbols mean in the IPA ")
+expander = st.expander("As a brief recall, click here to see what symbols mean in the IPA ")
 expander.write("""
     This table shows the phonemic chart of English sounds:
 """)
@@ -55,13 +55,13 @@ if st.button("Continue"):
 
         placeholder = st.empty()
         with placeholder.container():
-            st.title("Great job! That is correct! :star-struck: :tada: :confetti_ball:")
+            st.title(":blue[Great job! That is correct!] :star-struck: :tada: :confetti_ball:")
             st.write("The word '", st.session_state.rand_item, "' translates to '", result, "' in Italian.")
-            st.write("Now you can practice the pronunciation of this word. Click on the **play button** to listen the associated sound.")
-            tts = gTTS(text=st.session_state.rand_item, lang='en')
+            st.write("Now you can practice the pronunciation of this word. Click on the **play button** to listen to the associated sound.")
+            tts = gTTS(text=st.session_state.rand_item, lang='en', tld='co.uk')
             tts.save('user.mp3')
             st.audio('user.mp3')
-            st.write("Well done! If you want to keep practising, refresh the page.")
+            st.write("**Well done! If you want to keep practising, just refresh this page.**")
 
         # Load a new random word for the next question
         restart()
@@ -73,14 +73,14 @@ if st.button("Continue"):
 
         placeholder = st.empty()
         with placeholder.container():
-            st.title("Unfortunately, that is incorrect :slightly_frowning_face:")
+            st.title(":red[Unfortunately, that is incorrect] :slightly_frowning_face:")
             st.write("The correct word was '", st.session_state.rand_item, "'.")
             st.write("The word '", st.session_state.rand_item, "' translates to '", result, "' in Italian.")
-            st.write("Now you can practice the pronunciation of this word. Click on the **play button** to listen the associated sound.")
-            tts = gTTS(text=st.session_state.rand_item, lang='en')
+            st.write("Now you can practice the pronunciation of this word. Click on the **play button** to listen to the associated sound.")
+            tts = gTTS(text=st.session_state.rand_item, lang='en', tld='co.uk')
             tts.save('user.mp3')
             st.audio('user.mp3')
-            st.write("Well done! If you want to keep practising, refresh the page.")
+            st.write("**Well done! If you want to keep practising, just refresh this page.**")
 
         # Load a new random word for the next question
         restart()
