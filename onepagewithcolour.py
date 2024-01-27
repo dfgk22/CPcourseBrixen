@@ -12,7 +12,7 @@ if "rand_item" not in st.session_state:
 
 # Define functions
 def restart():
-    st.session_state.rand_item = random.choice(['chair', 'cold', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
+    st.session_state.rand_item = random.choice(['chair', 'street', 'earth', 'friend', 'heart', 'mountain', 'mouse', 'snow', 'woman'])
 
 # Load a random word when the app starts
 if st.session_state.rand_item is None:
