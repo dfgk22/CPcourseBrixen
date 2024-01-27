@@ -17,13 +17,13 @@ from PIL import Image
 from gtts import gTTS
 from translate import Translator
 
-# Initialize session state variables
+
 if "user_input" not in st.session_state:
     st.session_state.user_input = None
 if "rand_item" not in st.session_state:
     st.session_state.rand_item = None
 
-# Define function with words
+
 def restart():
     st.session_state.rand_item = random.choice(['bus',
                                                 'blue',
@@ -65,7 +65,7 @@ def restart():
                                                 'yacht',
                                                 'yellow'])
 
-# Load a random word when the app starts
+
 if st.session_state.rand_item is None:
     restart()
 
@@ -88,17 +88,17 @@ st.subheader(':blue[Decipher the] :red[IPA symbol]')
 st.write("\n")
 st.write("\n")
 
-# Load and display the image for the current word
+
 picture = "image/" + st.session_state.rand_item + '.jpg'
 img = Image.open(picture)
 st.image(img, width=400)
 
-# User input for the English word
+
 st.session_state.user_input = st.text_input("Type in the English word you see in the IPA symbol. **Remember to first press Enter and then click on Continue.**", key=1)
 
 
 if st.button("Continue"):
-    # Check if the user input is correct
+    
     if st.session_state.user_input and st.session_state.user_input.lower() == str(st.session_state.rand_item):
         text_to_translate = str(st.session_state.rand_item)
         translator = Translator(to_lang='it')
